@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAD SCHOOL - مدرسة اللغات والدعم المدرسي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6cf7;
+            --secondary: #6a7c92;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #1d2a3a;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2b4fcc);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .school-name {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #e0e7ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%234a6cf7" opacity="0.1" width="100" height="100"/><path fill="%234a6cf7" opacity="0.2" d="M0 0L100 100"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            animation: fadeIn 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.4);
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 108, 247, 0.6);
+            background: #3a5cd8;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: modalFade 0.5s;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), #2b4fcc);
+            color: white;
+            padding: 25px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .level-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .level-option {
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .level-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .level-option.selected {
+            border-color: var(--primary);
+            background: rgba(74, 108, 247, 0.1);
+        }
+        
+        .level-option i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .subjects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .subject-checkbox {
+            display: none;
+        }
+        
+        .subject-label {
+            display: block;
+            padding: 12px;
+            background: var(--light);
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .subject-checkbox:checked + .subject-label {
+            border-color: var(--primary);
+            background: rgba(74, 108, 247, 0.1);
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #3a5cd8;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+            animation: bounce 1s;
+        }
+        
+        .success-modal h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--success);
+        }
+        
+        .feedback-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feedback-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .happy-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+        }
+        
+        .sad-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+            
+            .level-options {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">ZC</div>
+            </div>
+            <div class="school-name">ZAD SCHOOL - ECOLE DE LANGUES ET DE SOUTIEN SCOLAIRE</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>مرحباً بكم في مدرسة ZAD</h1>
+            <p>نقدم لكم أفضل برامج الدعم المدرسي وتعلم اللغات بأحدث الطرق التعليمية</p>
+            <a href="#" class="cta-button" id="start-registration">ابدأ التسجيل الآن <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار مدرستنا؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>معلمون متخصصون</h3>
+                    <p>فريقنا من المعلمين المؤهلين ذوي الخبرة الواسعة في مجال التعليم</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>مناهج متكاملة</h3>
+                    <p>مناهج دراسية شاملة مصممة خصيصًا لتحقيق أفضل النتائج</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>نتائج مضمونة</h3>
+                    <p>ضمان تحسن مستوى الطلاب أكاديميًا وتحقيق أعلى الدرجات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/zad_school?igsh=NzJ4ZnN2YmhqaDVv" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61573056205281" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/213797448281" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>تابعنا على وسائل التواصل الاجتماعي لمعرفة آخر أخبارنا وعروضنا</p>
+            <div class="copyright">
+                &copy; 2025 ZAD SCHOOL. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registration-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>نموذج التسجيل</h2>
+                <p>املأ المعلومات أدناه لإكمال عملية التسجيل</p>
+            </div>
+            <div class="modal-body">
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="fullname">الاسم الكامل</label>
+                        <input type="text" id="fullname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>اختر المرحلة الدراسية</label>
+                        <div class="level-options">
+                            <div class="level-option" data-level="ابتدائي">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div>ابتدائي</div>
+                            </div>
+                            <div class="level-option" data-level="متوسط">
+                                <i class="fas fa-book"></i>
+                                <div>متوسط</div>
+                            </div>
+                            <div class="level-option" data-level="ثانوي">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>ثانوي</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Primary School Options -->
+                    <div id="primary-options" class="hidden">
+                        <div class="form-group">
+                            <label>اختر المواد</label>
+                            <div class="subjects-container">
+                                <input type="checkbox" id="math-primary" class="subject-checkbox" value="رياضيات">
+                                <label for="math-primary" class="subject-label">رياضيات</label>
+                                
+                                <input type="checkbox" id="arabic-primary" class="subject-checkbox" value="لغة عربية">
+                                <label for="arabic-primary" class="subject-label">لغة عربية</label>
+                                
+                                <input type="checkbox" id="french-primary" class="subject-checkbox" value="فرنسية">
+                                <label for="french-primary" class="subject-label">فرنسية</label>
+                                
+                                <input type="checkbox" id="english-primary" class="subject-checkbox" value="انجليزية">
+                                <label for="english-primary" class="subject-label">انجليزية</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="primary-grade">اختر الصف</label>
+                            <select id="primary-grade" class="form-control">
+                                <option value="الأولى">الأولى</option>
+                                <option value="الثانية">الثانية</option>
+                                <option value="الثالثة">الثالثة</option>
+                                <option value="الرابعة">الرابعة</option>
+                                <option value="الخامسة">الخامسة</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Middle School Options -->
+                    <div id="middle-options" class="hidden">
+                        <div class="form-group">
+                            <label>اختر المواد</label>
+                            <div class="subjects-container">
+                                <input type="checkbox" id="math-middle" class="subject-checkbox" value="رياضيات">
+                                <label for="math-middle" class="subject-label">رياضيات</label>
+                                
+                                <input type="checkbox" id="arabic-middle" class="subject-checkbox" value="لغة عربية">
+                                <label for="arabic-middle" class="subject-label">لغة عربية</label>
+                                
+                                <input type="checkbox" id="french-middle" class="subject-checkbox" value="فرنسية">
+                                <label for="french-middle" class="subject-label">فرنسية</label>
+                                
+                                <input type="checkbox" id="english-middle" class="subject-checkbox" value="انجليزية">
+                                <label for="english-middle" class="subject-label">انجليزية</label>
+                                
+                                <input type="checkbox" id="science-middle" class="subject-checkbox" value="علوم طبيعية">
+                                <label for="science-middle" class="subject-label">علوم طبيعية</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="middle-grade">اختر الصف</label>
+                            <select id="middle-grade" class="form-control">
+                                <option value="الأولى">الأولى</option>
+                                <option value="الثانية">الثانية</option>
+                                <option value="الثالثة">الثالثة</option>
+                                <option value="الرابعة">الرابعة</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- High School Options -->
+                    <div id="high-options" class="hidden">
+                        <div class="form-group">
+                            <label>اختر المواد</label>
+                            <div class="subjects-container">
+                                <input type="checkbox" id="math-high" class="subject-checkbox" value="رياضيات">
+                                <label for="math-high" class="subject-label">رياضيات</label>
+                                
+                                <input type="checkbox" id="arabic-high" class="subject-checkbox" value="لغة عربية">
+                                <label for="arabic-high" class="subject-label">لغة عربية</label>
+                                
+                                <input type="checkbox" id="french-high" class="subject-checkbox" value="فرنسية">
+                                <label for="french-high" class="subject-label">فرنسية</label>
+                                
+                                <input type="checkbox" id="english-high" class="subject-checkbox" value="انجليزية">
+                                <label for="english-high" class="subject-label">انجليزية</label>
+                                
+                                <input type="checkbox" id="accounting-high" class="subject-checkbox" value="محاسبة">
+                                <label for="accounting-high" class="subject-label">محاسبة</label>
+                                
+                                <input type="checkbox" id="science-high" class="subject-checkbox" value="علوم طبيعية">
+                                <label for="science-high" class="subject-label">علوم طبيعية</label>
+                                
+                                <input type="checkbox" id="philosophy-high" class="subject-checkbox" value="فلسفة">
+                                <label for="philosophy-high" class="subject-label">فلسفة</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="high-track">اختر المسار</label>
+                            <select id="high-track" class="form-control">
+                                <option value="جدع علوم طبيعية">جدع علوم طبيعية</option>
+                                <option value="جدع آداب">جدع آداب</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment">تعليق (اختياري)</label>
+                        <textarea id="comment" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">إرسال الطلب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-modal">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>شكراً لتسجيلك في مدرستنا!</h2>
+                <p>تم استلام طلبك بنجاح وسيتم معالجته في أقرب وقت ممكن</p>
+                <p>سنقوم بالتواصل معك قريباً عبر البريد الإلكتروني أو الهاتف</p>
+                
+                <div class="feedback-buttons">
+                    <button class="feedback-btn happy-btn">
+                        <i class="fas fa-smile"></i> سعيد بالخدمة
+                    </button>
+                    <button class="feedback-btn sad-btn">
+                        <i class="fas fa-frown"></i> لست سعيداً
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const registrationModal = document.getElementById('registration-modal');
+            const successModal = document.getElementById('success-modal');
+            const startRegistrationBtn = document.getElementById('start-registration');
+            const closeModalBtn = document.getElementById('close-modal');
+            const registrationForm = document.getElementById('registration-form');
+            const levelOptions = document.querySelectorAll('.level-option');
+            
+            // Show registration modal
+            startRegistrationBtn.addEventListener('click', function() {
+                registrationModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close modal
+            closeModalBtn.addEventListener('click', function() {
+                registrationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === registrationModal) {
+                    registrationModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === successModal) {
+                    successModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Level selection
+            levelOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    levelOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Show appropriate options based on selection
+                    const level = this.getAttribute('data-level');
+                    document.getElementById('primary-options').classList.add('hidden');
+                    document.getElementById('middle-options').classList.add('hidden');
+                    document.getElementById('high-options').classList.add('hidden');
+                    
+                    if (level === 'ابتدائي') {
+                        document.getElementById('primary-options').classList.remove('hidden');
+                    } else if (level === 'متوسط') {
+                        document.getElementById('middle-options').classList.remove('hidden');
+                    } else if (level === 'ثانوي') {
+                        document.getElementById('high-options').classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Form submission
+            registrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get selected level
+                const selectedLevel = document.querySelector('.level-option.selected');
+                if (!selectedLevel) {
+                    alert('يرجى اختيار المرحلة الدراسية');
+                    return;
+                }
+                
+                // Here you would normally send the data to a server
+                // For demonstration, we'll just show the success message
+                
+                registrationModal.style.display = 'none';
+                successModal.style.display = 'block';
+                
+                // In a real application, you would send this data to your Telegram bot
+                const formData = {
+                    fullname: document.getElementById('fullname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    level: selectedLevel.getAttribute('data-level'),
+                    comment: document.getElementById('comment').value
+                };
+                
+                console.log('Form Data:', formData);
+                
+                // Simulate sending to Telegram bot
+                setTimeout(() => {
+                    // This would be the actual API call to your Telegram bot
+                    // fetch('YOUR_TELEGRAM_BOT_URL', { method: 'POST', body: JSON.stringify(formData) });
+                }, 1000);
+            });
+            
+        });
+    </script>
+</body>
+</html>
